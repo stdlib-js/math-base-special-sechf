@@ -45,20 +45,43 @@ The [hyperbolic secant][hyperbolic-functions] is defined as
 \mathop{\mathrm{sech}}(x) = \frac{1}{\cosh(x)} = \frac{2}{e^x + e^{-x}}
 ```
 
+<!-- <div class="equation" align="center" data-raw-text="\operatorname{sech}(x) = \frac{1}{\cosh(x)} = \frac{2}{e^x + e^{-x}}" data-equation="eq:hyperbolic_secant">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@ffd6ded5947d911657cac30a4548743bc210d2a5/lib/node_modules/@stdlib/math/base/special/sechf/docs/img/equation_hyperbolic_secant.svg" alt="Hyperbolic secant">
+    <br>
+</div> -->
+
 <!-- </equation> -->
 
 </section>
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-sechf
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import sechf from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-sechf@esm/index.mjs';
+var sechf = require( '@stdlib/math-base-special-sechf' );
 ```
 
 #### sechf( x )
@@ -89,15 +112,10 @@ v = sechf( NaN );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@esm/index.mjs';
-import logEachMap from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@esm/index.mjs';
-import sechf from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-sechf@esm/index.mjs';
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var sechf = require( '@stdlib/math-base-special-sechf' );
 
 var opts = {
     'dtype': 'float32'
@@ -105,10 +123,6 @@ var opts = {
 var x = uniform( 100, -5.0, 5.0, opts );
 
 logEachMap( 'sechf(%0.4f) = %0.4f', x, sechf );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -117,7 +131,91 @@ logEachMap( 'sechf(%0.4f) = %0.4f', x, sechf );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/sechf.h"
+```
+
+#### stdlib_base_sechf( x )
+
+Computes the [hyperbolic secant][hyperbolic-functions] of a single-precision floating-point number.
+
+```c
+float out = stdlib_base_sechf( 2.0f );
+// returns ~0.2658f
+
+out = stdlib_base_sechf( -2.0f );
+// returns ~0.2658f
+```
+
+The function accepts the following arguments:
+
+-   **x**: `[in] float` input value.
+
+```c
+float stdlib_base_sechf( const float x );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/sechf.h"
+#include <stdio.h>
+
+int main( void ) {
+    const float x[] = { -5.0f, -3.89f, -2.78f, -1.67f, -0.56f, 0.56f, 1.67f, 2.78f, 3.89f, 5.0f };
+
+    float v;
+    int i;
+    for ( i = 0; i < 10; i++ ) {
+        v = stdlib_base_sechf( x[ i ] );
+        printf( "sechf(%f) = %f\n", x[ i ], v );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -136,7 +234,7 @@ logEachMap( 'sechf(%0.4f) = %0.4f', x, sechf );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
